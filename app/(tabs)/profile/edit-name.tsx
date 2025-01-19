@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const ListsScreen = () => {
+const EditNameScreen = () => {
   return (
     <View>
-      <Text>ListsScreen</Text>
+      <Text>EditNameScreen</Text>
     </View>
   );
 };
 
-export default ListsScreen;
+export default EditNameScreen;
