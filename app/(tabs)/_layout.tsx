@@ -1,8 +1,11 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import Entypo from "@expo/vector-icons/Entypo";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import AntDesign from '@expo/vector-icons/AntDesign';
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
-export default function TabLayout() {
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
@@ -23,34 +26,34 @@ export default function TabLayout() {
         options={{
           title: "Lists",
           tabBarIcon: ({ color }) => (
-            <Entypo name="home" size={28} color={color} />
+            <FontAwesome name="bookmark" size={28} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="create"
         options={{
-          title: "Settings",
+          title: "Create",
           tabBarIcon: ({ color }) => (
-            <Entypo name="home" size={28} color={color} />
+            <AntDesign name="pluscircleo" size={28} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="notifications"
         options={{
-          title: "Settings",
+          title: "Notifications",
           tabBarIcon: ({ color }) => (
-            <Entypo name="home" size={28} color={color} />
+            <Entypo name="bell" size={28} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="profile"
         options={{
-          title: "Settings",
+          title: "Profile",
           tabBarIcon: ({ color }) => (
-            <Entypo name="home" size={28} color={color} />
+            <FontAwesome5 name="user-alt" size={28} color={color} />
           ),
         }}
       />

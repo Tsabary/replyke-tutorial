@@ -4,7 +4,7 @@ import React from 'react'
 const CreateScreen = () => {
   return (
     <View>
-      <Text>lists</Text>
+      <Text>Create</Text>
     </View>
   )
 }
