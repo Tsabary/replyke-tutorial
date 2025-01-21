@@ -5,6 +5,7 @@ import {
   Text,
   TextInput,
   View,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import { useCreateEntity, useUploadFile, useUser } from "replyke-rn";
@@ -12,7 +13,8 @@ import { useRouter } from "expo-router";
 import { CameraCapturedPicture } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { TouchableOpacity } from "react-native";
+import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
+import { resizeIfNeeded } from "../../utils/resizeIfNeeded";
 
 const FinalizePost = ({
   cameraPhoto,
@@ -38,25 +40,36 @@ const FinalizePost = ({
     if (!imageUri || !user) return;
 
     setUploading(true);
-    try {
-      // Extract the file extension from the URI
-      const fileExtension = imageUri.substring(imageUri.lastIndexOf(".") + 1);
 
-      // In React Native, we provide the shape {uri, type, name}:
+    try {
+      // Resize to ensure neither side exceeds 800
+      const resizedUri = await resizeIfNeeded(imageUri);
+
+      // 2) Extract the file extension from the original URI or simply use JPEG
+      //    since we forced JPEG above.
+      //    But if you want to preserve the original extension, keep that logic.
+      //    For simplicity, let's assume JPEG here:
+      const fileExtension = "jpg";
+
+      // 3) Prepare the file for upload (in React Native style)
       const rnFile = {
-        uri: imageUri,
-        type: `image/${fileExtension}`, // Use the extracted extension
-        name: `${Date.now()}.${fileExtension}`, // Dynamically include the file extension
+        uri: resizedUri,
+        type: `image/${fileExtension}`,
+        name: `${Date.now()}.${fileExtension}`,
       };
 
+      // 4) Upload the resized file to your storage:
       const pathParts = ["posts", user.id];
       const uploadResponse = await uploadFile(rnFile, pathParts, rnFile.name);
+
       if (uploadResponse) {
         await createEntity({
           title: caption,
           media: [{ ...uploadResponse, fileExtension }],
         });
       }
+
+      // 5) Clean up & navigate away
       router.navigate("/");
       resetCreateScreen();
     } catch (error) {

@@ -31,7 +31,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="create"
+        name="create-post"
         options={{
           title: "Create",
           tabBarIcon: ({ color }) => (

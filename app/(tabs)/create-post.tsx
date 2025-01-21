@@ -3,10 +3,10 @@ import { View } from "react-native";
 import { useCameraPermissions, CameraCapturedPicture } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 
-import PhotoCapture from "../../components/create/PhotoCapture";
-import PhotoPreview from "../../components/create/PhotoPreview";
-import RequestPermission from "../../components/create/RequestPermission";
-import FinalizePost from "../../components/create/FinalizePost";
+import PhotoCapture from "../../components/create-post/PhotoCapture";
+import PhotoPreview from "../../components/create-post/PhotoPreview";
+import RequestPermission from "../../components/create-post/RequestPermission";
+import FinalizePost from "../../components/create-post/FinalizePost";
 
 export default function CreateScreen() {
   const [permission, requestPermission] = useCameraPermissions();
