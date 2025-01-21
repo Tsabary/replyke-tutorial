@@ -39,26 +39,6 @@ function PhotoPreview({
         >
           <Text className="text-lg tracking-wide text-white">Next</Text>
         </Pressable>
-
-        {/* {uploading ? (
-          <ActivityIndicator />
-        ) : (
-          <Pressable
-            onPress={() => handleUpload((cameraPhoto ?? galleryPhoto)!.uri)}
-            className="p-3"
-          >
-            <Text
-              className="text-xl text-white tracking-wide"
-              style={{
-                textShadowColor: "#00000066",
-                textShadowRadius: 6,
-                textShadowOffset: { width: 0, height: 0 },
-              }}
-            >
-              Publish
-            </Text>
-          </Pressable>
-        )} */}
       </View>
     </View>
   );
