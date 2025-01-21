@@ -8,7 +8,7 @@ import PhotoPreview from "../../components/create-post/PhotoPreview";
 import RequestPermission from "../../components/create-post/RequestPermission";
 import FinalizePost from "../../components/create-post/FinalizePost";
 
-export default function CreateScreen() {
+export default function CreatePostScreen() {
   const [permission, requestPermission] = useCameraPermissions();
 
   const [cameraPhoto, setCameraPhoto] = useState<CameraCapturedPicture | null>(
