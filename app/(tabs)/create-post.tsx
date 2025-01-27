@@ -3,15 +3,16 @@ import { View } from "react-native";
 import { useCameraPermissions, CameraCapturedPicture } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 import { useUser } from "replyke-expo";
+import { Redirect } from "expo-router";
 
 import PhotoCapture from "../../components/create-post/PhotoCapture";
 import PhotoPreview from "../../components/create-post/PhotoPreview";
 import RequestPermission from "../../components/create-post/RequestPermission";
 import FinalizePost from "../../components/create-post/FinalizePost";
-import { Redirect } from "expo-router";
 
 export default function CreatePostScreen() {
   const { user } = useUser();
+
   const [permission, requestPermission] = useCameraPermissions();
 
   const [cameraPhoto, setCameraPhoto] = useState<CameraCapturedPicture | null>(

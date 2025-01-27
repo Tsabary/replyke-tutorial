@@ -1,6 +1,12 @@
 import React, { useCallback, useState } from "react";
-import { EntityProvider, Skeleton, useFeed } from "replyke-expo";
-import { RefreshControl, View, Text, FlatList } from "react-native";
+import { EntityProvider, useFeed } from "replyke-expo";
+import {
+  RefreshControl,
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
 import { SinglePost } from "../shared/SinglePost";
 
 function Feed() {
@@ -18,12 +24,9 @@ function Feed() {
 
   if (initialLoading)
     return (
-      <Skeleton
-        style={{
-          height: listHeight,
-          width: "100%",
-        }}
-      />
+      <View className="flex-1 items-center justify-center">
+        <ActivityIndicator size="large" />
+      </View>
     );
 
   return (

@@ -53,9 +53,8 @@ const FinalizePost = ({
 
       // Upload the resized file to your storage:
       const pathParts = ["posts", user.id];
-      console.log("About to upload")
+
       const uploadResponse = await uploadFile(rnFile, pathParts);
-      console.log("received upload response: " + !!uploadResponse)
 
       if (uploadResponse) {
         await createEntity({
