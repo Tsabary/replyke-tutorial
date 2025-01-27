@@ -1,19 +1,13 @@
-import { useRouter } from "expo-router";
-import { Button, View } from "react-native";
-import { useAuth, useUser } from "replyke-rn";
+import React from "react";
+import { FeedProvider } from "replyke-expo";
+import Feed from "../../components/home/Feed";
 
-export default function HomeScreen() {
-  const { signOut } = useAuth();
-  const { user } = useUser();
-  const router = useRouter();
-
+const Home = () => {
   return (
-    <View className="bg-red-500 flex-1 justify-center items-center gap-4">
-      {user ? (
-        <Button title="Sign out" onPress={signOut} />
-      ) : (
-        <Button title="Sign in" onPress={() => router.navigate("/sign-in")} />
-      )}
-    </View>
+    <FeedProvider sortBy="hot">
+      <Feed />
+    </FeedProvider>
   );
-}
+};
+
+export default Home;

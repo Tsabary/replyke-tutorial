@@ -8,12 +8,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import { useCreateEntity, useUploadFile, useUser } from "replyke-rn";
+import { useCreateEntity, useUploadFile, useUser } from "replyke-expo";
 import { useRouter } from "expo-router";
 import { CameraCapturedPicture } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
 import { resizeIfNeeded } from "../../utils/resizeIfNeeded";
 
 const FinalizePost = ({
@@ -54,7 +53,9 @@ const FinalizePost = ({
 
       // Upload the resized file to your storage:
       const pathParts = ["posts", user.id];
+      console.log("About to upload")
       const uploadResponse = await uploadFile(rnFile, pathParts);
+      console.log("received upload response: " + !!uploadResponse)
 
       if (uploadResponse) {
         await createEntity({
