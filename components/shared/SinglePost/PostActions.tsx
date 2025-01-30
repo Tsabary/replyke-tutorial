@@ -5,7 +5,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-function PostActionsHover() {
+function PostActions() {
   const { entity } = useEntity();
 
   if (!entity) return null;
@@ -46,4 +46,4 @@ function PostActionsHover() {
   );
 }
 
-export default PostActionsHover;
+export default PostActions;

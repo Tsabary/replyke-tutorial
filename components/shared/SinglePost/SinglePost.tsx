@@ -1,7 +1,7 @@
 import { Image, Text, View } from "react-native";
 import React from "react";
 import { useEntity } from "replyke-expo";
-import PostActionsHover from "./PostActionsHover";
+import PostActions from "./PostActions";
 
 const SinglePost = ({ listHeight }: { listHeight: number }) => {
   const { entity } = useEntity();
@@ -22,7 +22,7 @@ const SinglePost = ({ listHeight }: { listHeight: number }) => {
       </View>
 
       {/* Actions */}
-      <PostActionsHover />
+      <PostActions />
     </View>
   );
 };

@@ -54,11 +54,9 @@ function Feed() {
         ListEmptyComponent={
           loading ? null : (
             <View
-              className="flex-1"
+              className="flex-1 bg-white justify-center"
               style={{
                 height: listHeight,
-                backgroundColor: "white",
-                justifyContent: "center",
               }}
             >
               <Text className="text-center text-xl font-medium text-gray-400">
@@ -70,9 +68,6 @@ function Feed() {
             </View>
           )
         }
-        ItemSeparatorComponent={() => (
-          <View className="h-[0.5px] bg-gray-200" />
-        )}
         pagingEnabled
         decelerationRate="fast"
         showsVerticalScrollIndicator={false}
