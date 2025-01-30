@@ -3,8 +3,8 @@ import React from "react";
 
 const ListsScreen = () => {
   return (
-    <View>
-      <Text>ListsScreen</Text>
+    <View className="bg-green-500 flex-1 justify-center items-center gap-4">
+      <Text className="text-3xl">Lists</Text>
     </View>
   );
 };
