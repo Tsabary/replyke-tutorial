@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { Button, View } from "react-native";
-import { useAuth, useUser } from "replyke-expo";
+import { useAuth, useUser } from "@replyke/expo";
 
 export default function HomeScreen() {
   const { signOut } = useAuth();
