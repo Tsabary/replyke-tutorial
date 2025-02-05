@@ -1,5 +1,5 @@
-import { Tabs } from "expo-router";
 import React from "react";
+import { Tabs } from "expo-router";
 import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AntDesign from "@expo/vector-icons/AntDesign";
