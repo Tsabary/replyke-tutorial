@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { EntityProvider, useFeed } from "replyke-expo";
+import { EntityProvider, useFeed } from "@replyke/expo";
 import {
   RefreshControl,
   View,

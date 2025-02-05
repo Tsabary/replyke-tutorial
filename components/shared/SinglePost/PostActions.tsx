@@ -1,6 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Pressable } from "react-native";
-import { useEntity, UserAvatar } from "replyke-expo";
+import { useEntity } from "@replyke/expo";
+import { UserAvatar } from "@replyke/ui-core-react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { useCameraPermissions, CameraCapturedPicture } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
-import { useUser } from "replyke-expo";
+import { useUser } from "@replyke/expo";
 import { Redirect } from "expo-router";
 
 import PhotoCapture from "../../components/create-post/PhotoCapture";

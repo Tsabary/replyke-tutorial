@@ -1,6 +1,6 @@
-import { Image, Text, View } from "react-native";
 import React from "react";
-import { useEntity } from "replyke-expo";
+import { Image, Text, View } from "react-native";
+import { useEntity } from "@replyke/expo";
 import PostActions from "./PostActions";
 
 const SinglePost = ({ listHeight }: { listHeight: number }) => {

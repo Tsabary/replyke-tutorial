@@ -1,8 +1,8 @@
-import { Redirect, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Redirect, useRouter } from "expo-router";
 import validator from "validator";
-import { useAuth, useUser } from "replyke-expo";
+import { useAuth, useUser } from "@replyke/expo";
 
 const SignUpScreen = () => {
   const router = useRouter();
