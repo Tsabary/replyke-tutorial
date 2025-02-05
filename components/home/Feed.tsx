@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import { EntityProvider, useFeed } from "replyke-expo";
 import {
   RefreshControl,
   View,
@@ -7,6 +6,7 @@ import {
   FlatList,
   ActivityIndicator,
 } from "react-native";
+import { EntityProvider, useFeed } from "@replyke/expo";
 import { SinglePost } from "../shared/SinglePost";
 
 function Feed() {

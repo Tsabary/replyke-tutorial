@@ -1,6 +1,6 @@
-import { View, Button } from "react-native";
 import React from "react";
-import { useAuth, useUser } from "replyke-expo";
+import { View, Button } from "react-native";
+import { useAuth, useUser } from "@replyke/expo";
 import { useRouter } from "expo-router";
 
 const ProfileScreen = () => {

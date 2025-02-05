@@ -1,5 +1,5 @@
 import React from "react";
-import { FeedProvider } from "replyke-expo";
+import { FeedProvider } from "@replyke/expo";
 import Feed from "../../components/home/Feed";
 
 const Home = () => {
