@@ -13,9 +13,10 @@ import CollectionsSheetHeader from "./CollectionsSheetHeader";
 import SubCollectionsList from "./SubCollectionsList";
 import CreateNewCollection from "./CreateNewCollection";
 import CurrentCollectionItems from "./CurrentCollectionItems";
+import { ListsProvider } from "@replyke/expo";
 
 const CollectionsSheet = () => {
-  const { collectionsSheetRef, collectionsEntityId } = useSheetManager();
+  const { collectionsSheetRef } = useSheetManager();
   const [isCreateCollectionView, setIsCreateCollectionView] = useState(false);
   const [newCollectionName, setNewCollectionName] = useState("");
 
@@ -59,24 +60,25 @@ const CollectionsSheet = () => {
             className="flex-1"
           >
             <BottomSheetView className="flex-1">
-              <CollectionsSheetHeader
-                entityId={collectionsEntityId}
-                newListName={newCollectionName}
-                setNewListName={setNewCollectionName}
-                isCreateListView={isCreateCollectionView}
-                setIsCreateListView={setIsCreateCollectionView}
-              />
+              <ListsProvider>
+                <CollectionsSheetHeader
+                  newListName={newCollectionName}
+                  setNewListName={setNewCollectionName}
+                  isCreateListView={isCreateCollectionView}
+                  setIsCreateListView={setIsCreateCollectionView}
+                />
 
-              <CurrentCollectionItems />
+                <CurrentCollectionItems />
 
-              <CreateNewCollection
-                isCreateCollectionView={isCreateCollectionView}
-                setIsCreateCollectionView={setIsCreateCollectionView}
-                newCollectionName={newCollectionName}
-                setNewCollectionName={setNewCollectionName}
-              />
+                <CreateNewCollection
+                  isCreateCollectionView={isCreateCollectionView}
+                  setIsCreateCollectionView={setIsCreateCollectionView}
+                  newCollectionName={newCollectionName}
+                  setNewCollectionName={setNewCollectionName}
+                />
 
-              <SubCollectionsList />
+                <SubCollectionsList />
+              </ListsProvider>
             </BottomSheetView>
           </KeyboardAvoidingView>
         </BottomSheet>
