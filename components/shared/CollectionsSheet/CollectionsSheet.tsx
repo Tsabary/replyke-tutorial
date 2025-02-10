@@ -1,11 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import {
-  Platform,
-  KeyboardAvoidingView,
-  Keyboard,
-  Text,
-  View,
-} from "react-native";
+import { Platform, KeyboardAvoidingView, Keyboard, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BottomSheet, {
   BottomSheetBackdrop,
@@ -13,11 +7,17 @@ import BottomSheet, {
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
 
-import useSheetManager from "../../hooks/useSheetManager";
-import { cn } from "../../utils/cn";
+import useSheetManager from "../../../hooks/useSheetManager";
+import { cn } from "../../../utils/cn";
+import CollectionsSheetHeader from "./CollectionsSheetHeader";
+import SubCollectionsList from "./SubCollectionsList";
+import CreateNewCollection from "./CreateNewCollection";
+import CurrentCollectionItems from "./CurrentCollectionItems";
 
 const CollectionsSheet = () => {
-  const { collectionsSheetRef } = useSheetManager();
+  const { collectionsSheetRef, collectionsEntityId } = useSheetManager();
+  const [isCreateCollectionView, setIsCreateCollectionView] = useState(false);
+  const [newCollectionName, setNewCollectionName] = useState("");
 
   const snapPoints = useMemo(() => ["100%"], []);
 
@@ -59,7 +59,24 @@ const CollectionsSheet = () => {
             className="flex-1"
           >
             <BottomSheetView className="flex-1">
-              <Text>Collections Sheet</Text>
+              <CollectionsSheetHeader
+                entityId={collectionsEntityId}
+                newListName={newCollectionName}
+                setNewListName={setNewCollectionName}
+                isCreateListView={isCreateCollectionView}
+                setIsCreateListView={setIsCreateCollectionView}
+              />
+
+              <CurrentCollectionItems />
+
+              <CreateNewCollection
+                isCreateCollectionView={isCreateCollectionView}
+                setIsCreateCollectionView={setIsCreateCollectionView}
+                newCollectionName={newCollectionName}
+                setNewCollectionName={setNewCollectionName}
+              />
+
+              <SubCollectionsList />
             </BottomSheetView>
           </KeyboardAvoidingView>
         </BottomSheet>

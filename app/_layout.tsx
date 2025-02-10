@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { ReplykeProvider } from "@replyke/expo";
+import { ListsProvider, ReplykeProvider } from "@replyke/expo";
 import { SheetManagerProvider } from "../context/SheetManagerContext";
 import CommentSectionSheet from "../components/shared/CommentSectionSheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -44,7 +44,9 @@ export default function RootLayout() {
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               </Stack>
               <CommentSectionSheet />
-              <CollectionsSheet />
+              <ListsProvider>
+                <CollectionsSheet />
+              </ListsProvider>
             </SafeAreaView>
             <StatusBar style="dark" />
           </SafeAreaProvider>
