@@ -7,7 +7,6 @@ const SinglePost = ({ listHeight }: { listHeight: number }) => {
   const { entity } = useEntity();
 
   if (!entity) return null;
-
   return (
     <View className="relative flex-1" style={{ height: listHeight }}>
       <Image
