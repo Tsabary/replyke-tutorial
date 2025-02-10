@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { handleError, useLists } from "@replyke/expo";
 import { cn } from "../../../utils/cn";
+import useSheetManager from "../../../hooks/useSheetManager";
 
 const styles = {
   button: "py-2 px-4 bg-gray-300 rounded-xl",
@@ -13,13 +14,11 @@ const styles = {
 };
 
 const CollectionsSheetHeader = ({
-  entityId,
   isCreateListView,
   setIsCreateListView,
   newListName,
   setNewListName,
 }: {
-  entityId: string | null | undefined;
   isCreateListView: boolean;
   setIsCreateListView: React.Dispatch<React.SetStateAction<boolean>>;
   newListName: string;
@@ -34,6 +33,8 @@ const CollectionsSheetHeader = ({
     createList,
     updateList,
   } = useLists();
+
+  const { collectionsEntityId: entityId } = useSheetManager();
 
   const [isEditingName, setIsEditingName] = useState(false);
   const [updatedListName, setUpdatedListName] = useState("");

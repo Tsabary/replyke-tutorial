@@ -1,15 +1,15 @@
 import "../global.css";
+import { useEffect } from "react";
+import "react-native-reanimated";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
-import "react-native-reanimated";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { ListsProvider, ReplykeProvider } from "@replyke/expo";
+import { ReplykeProvider } from "@replyke/expo";
 import { SheetManagerProvider } from "../context/SheetManagerContext";
 import CommentSectionSheet from "../components/shared/CommentSectionSheet";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 import CollectionsSheet from "../components/shared/CollectionsSheet";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -44,9 +44,7 @@ export default function RootLayout() {
                 <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               </Stack>
               <CommentSectionSheet />
-              <ListsProvider>
-                <CollectionsSheet />
-              </ListsProvider>
+              <CollectionsSheet />
             </SafeAreaView>
             <StatusBar style="dark" />
           </SafeAreaProvider>
